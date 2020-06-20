@@ -28,13 +28,22 @@ class Person {
 
     saveInfo() {
         var mysql = require('mysql');
-        var mySqlConnection = mysql.createConnection({host: '127.0.0.1', user: '', password: '', database: 'mydb'});
+        var mySqlConnection = mysql.createConnection({
+            host: "localhost",
+            user: "myusername",
+            password: "mypassword"
+        });
 
-        try {
-            mySqlConnection.query('INSERT INTO Person (id, firstName, lastName, birthDate) VALUES ("${this._id, this._firstName, this._lastName, this._birthDate}")');
-        } catch (error) {
-            throw error;
-        }
+        mySqlConnection.connect(function(err) {
+            if (err) throw err;
+            console.log("Connected!");
+            var sql = 'INSERT INTO Person (id, firstName, lastName, birthDate) VALUES ("${this._id, this._firstName, this._lastName, this._birthDate}")';
+            
+            con.query(sql, function (err, result) {
+                if (err) throw err;
+                console.log("1 record inserted");
+            });
+        });
     }
 }
 
@@ -53,36 +62,64 @@ class Employee extends Person {
 
     saveInfo() {
         var mysql = require('mysql');
-        var mySqlConnection = mysql.createConnection({host: '127.0.0.1', user: '', password: '', database: 'mydb'});
+        var mySqlConnection = mysql.createConnection({
+            host: "localhost",
+            user: "myusername",
+            password: "mypassword"
+        });
 
-        try {
-            mySqlConnection.query('INSERT INTO Employee (id, firstName, lastName, birthDate, salary) VALUES ("${this._id, this._firstName, this._lastName, this._birthDate, this._salary}")');
-        } catch (error) {
-            throw error;
-        }
+        mySqlConnection.connect(function(err) {
+            if (err) throw err;
+            console.log("Connected!");
+            var sql = 'INSERT INTO Employee (id, firstName, lastName, birthDate, salary) VALUES ("${this._id, this._firstName, this._lastName, this._birthDate, this._salary}")';
+            
+            con.query(sql, function (err, result) {
+                if (err) throw err;
+                console.log("1 record inserted");
+            });
+        });
     }
 
     promote(newSalary) {
         this._salary = newSalary;
         var mysql = require('mysql');
-        var mySqlConnection = mysql.createConnection({host: '127.0.0.1', user: '', password: '', database: 'mydb'});
 
-        try {
-            mySqlConnection.query('UPDATE Employee SET salary = "${this._salary}" WHERE id = ${thid._id}');
-        } catch (error) {
-            throw error;
-        }
+        var mySqlConnection = mysql.createConnection({
+            host: "localhost",
+            user: "myusername",
+            password: "mypassword"
+        });
+
+        mySqlConnection.connect(function(err) {
+            if (err) throw err;
+            console.log("Connected!");
+            var sql = 'UPDATE Employee SET salary = "${this._salary}" WHERE id = ${thid._id}';
+            
+            con.query(sql, function (err, result) {
+                if (err) throw err;
+                console.log("1 record inserted");
+            });
+        });
     }
 
     fire() {
         var mysql = require('mysql');
-        var mySqlConnection = mysql.createConnection({host: '127.0.0.1', user: '', password: '', database: 'mydb'});
+        var mySqlConnection = mysql.createConnection({
+            host: "localhost",
+            user: "myusername",
+            password: "mypassword"
+        });
 
-        try {
-            mySqlConnection.query('DELETE FROM Employee WHERE id = ${thid._id}');
-        } catch (error) {
-            throw error;
-        }
+        mySqlConnection.connect(function(err) {
+            if (err) throw err;
+            console.log("Connected!");
+            var sql = 'DELETE FROM Employee WHERE id = ${thid._id}';
+            
+            con.query(sql, function (err, result) {
+                if (err) throw err;
+                console.log("1 record inserted");
+            });
+        });
     }
 }
 
@@ -101,13 +138,22 @@ class Student extends Person {
 
     saveInfo() {
         var mysql = require('mysql');
-        var mySqlConnection = mysql.createConnection({host: '127.0.0.1', user: '', password: '', database: 'mydb'});
+        var mySqlConnection = mysql.createConnection({
+            host: "localhost",
+            user: "myusername",
+            password: "mypassword"
+        });
 
-        try {
-            mySqlConnection.query('INSERT INTO Student (id, firstName, lastName, birthDate, scholarship) VALUES ("${this._id, this._firstName, this._lastName, this._birthDate, this._scholarship}")');
-        } catch (error) {
-            throw error;
-        }
+        mySqlConnection.connect(function(err) {
+            if (err) throw err;
+            console.log("Connected!");
+            var sql = 'INSERT INTO Student (id, firstName, lastName, birthDate, scholarship) VALUES ("${this._id, this._firstName, this._lastName, this._birthDate, this._scholarship}")';
+            
+            con.query(sql, function (err, result) {
+                if (err) throw err;
+                console.log("1 record inserted");
+            });
+        });
     }
 
     evaluateStudent(){
@@ -136,13 +182,22 @@ class Teacher extends Employee {
 
     saveInfo() {
         var mysql = require('mysql');
-        var mySqlConnection = mysql.createConnection({host: '127.0.0.1', user: '', password: '', database: 'mydb'});
+        var mySqlConnection = mysql.createConnection({
+            host: "localhost",
+            user: "myusername",
+            password: "mypassword"
+        });
 
-        try {
-            mySqlConnection.query('INSERT INTO Teacher (id, firstName, lastName, birthDate, salary, subject) VALUES ("${this._id, this._firstName, this._lastName, this._birthDate, this._salary, this._subject}")');
-        } catch (error) {
-            throw error;
-        }
+        mySqlConnection.connect(function(err) {
+            if (err) throw err;
+            console.log("Connected!");
+            var sql = 'INSERT INTO Teacher (id, firstName, lastName, birthDate, salary, subject) VALUES ("${this._id, this._firstName, this._lastName, this._birthDate, this._salary, this._subject}")';
+            
+            con.query(sql, function (err, result) {
+                if (err) throw err;
+                console.log("1 record inserted");
+            });
+        });
     }
 }
 
@@ -161,13 +216,22 @@ class Administrator extends Employee {
 
     saveInfo() {
         var mysql = require('mysql');
-        var mySqlConnection = mysql.createConnection({host: '127.0.0.1', user: '', password: '', database: 'mydb'});
+        var mySqlConnection = mysql.createConnection({
+            host: "localhost",
+            user: "myusername",
+            password: "mypassword"
+        });
 
-        try {
-            mySqlConnection.query('INSERT INTO Administrator (id, firstName, lastName, birthDate, salary, department) VALUES ("${this._id, this._firstName, this._lastName, this._birthDate, this._salary, this._department}")');
-        } catch (error) {
-            throw error;
-        }
+        mySqlConnection.connect(function(err) {
+            if (err) throw err;
+            console.log("Connected!");
+            var sql = 'INSERT INTO Administrator (id, firstName, lastName, birthDate, salary, department) VALUES ("${this._id, this._firstName, this._lastName, this._birthDate, this._salary, this._department}")';
+            
+            con.query(sql, function (err, result) {
+                if (err) throw err;
+                console.log("1 record inserted");
+            });
+        });
     }
 }
 
@@ -180,13 +244,22 @@ class ProDean extends Employee {
 
     saveInfo() {
         var mysql = require('mysql');
-        var mySqlConnection = mysql.createConnection({host: '127.0.0.1', user: '', password: '', database: 'mydb'});
+        var mySqlConnection = mysql.createConnection({
+            host: "localhost",
+            user: "myusername",
+            password: "mypassword"
+        });
 
-        try {
-            mySqlConnection.query('INSERT INTO ProDean (id, firstName, lastName, birthDate, salary) VALUES ("${this._id, this._firstName, this._lastName, this._birthDate, this._salary}")');
-        } catch (error) {
-            throw error;
-        }
+        mySqlConnection.connect(function(err) {
+            if (err) throw err;
+            console.log("Connected!");
+            var sql = 'INSERT INTO ProDean (id, firstName, lastName, birthDate, salary) VALUES ("${this._id, this._firstName, this._lastName, this._birthDate, this._salary}")';
+            
+            con.query(sql, function (err, result) {
+                if (err) throw err;
+                console.log("1 record inserted");
+            });
+        });
     }
 }
 
@@ -205,13 +278,22 @@ class DepartmentHead extends Teacher {
 
     saveInfo() {
         var mysql = require('mysql');
-        var mySqlConnection = mysql.createConnection({host: '127.0.0.1', user: '', password: '', database: 'mydb'});
+        var mySqlConnection = mysql.createConnection({
+            host: "localhost",
+            user: "myusername",
+            password: "mypassword"
+        });
 
-        try {
-            mySqlConnection.query('INSERT INTO DepartamentHead (id, firstName, lastName, birthDate, salary, department) VALUES ("${this._id, this._firstName, this._lastName, this._birthDate, this._salary, this._department}")');
-        } catch (error) {
-            throw error;
-        }
+        mySqlConnection.connect(function(err) {
+            if (err) throw err;
+            console.log("Connected!");
+            var sql = 'INSERT INTO DepartamentHead (id, firstName, lastName, birthDate, salary, department) VALUES ("${this._id, this._firstName, this._lastName, this._birthDate, this._salary, this._department}")';
+            
+            con.query(sql, function (err, result) {
+                if (err) throw err;
+                console.log("1 record inserted");
+            });
+        });
     }
 }
 
@@ -230,12 +312,21 @@ class Dean extends ProDean {
 
     saveInfo() {
         var mysql = require('mysql');
-        var mySqlConnection = mysql.createConnection({host: '127.0.0.1', user: '', password: '', database: 'mydb'});
+        var mySqlConnection = mysql.createConnection({
+            host: "localhost",
+            user: "myusername",
+            password: "mypassword"
+        });
 
-        try {
-            mySqlConnection.query('INSERT INTO Dean (id, firstName, lastName, birthDate, year) VALUES ("${this._id, this._firstName, this._lastName, this._birthDate, this._year}")');
-        } catch (error) {
-            throw error;
-        }
+        mySqlConnection.connect(function(err) {
+            if (err) throw err;
+            console.log("Connected!");
+            var sql = 'INSERT INTO Dean (id, firstName, lastName, birthDate, year) VALUES ("${this._id, this._firstName, this._lastName, this._birthDate, this._year}")';
+            
+            con.query(sql, function (err, result) {
+                if (err) throw err;
+                console.log("1 record inserted");
+            });
+        });
     }
 }
