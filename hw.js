@@ -7,7 +7,6 @@ class Person {
         this._lastName = lastName;
         this._birthDate = birthDate;
     
-        // save this in SQL
         this.saveInfo();
     }
 
@@ -45,7 +44,6 @@ class Employee extends Person {
     
         this._salary = salary;
 
-        // save this in SQL
         this.saveInfo();
     }
 
@@ -94,7 +92,6 @@ class Student extends Person {
     
         this._scholarship = scholarship;
 
-        // save this in SQL
         this.saveInfo();
     }
 
@@ -130,7 +127,6 @@ class Teacher extends Employee {
     
         this._subject = subject;
 
-        // save this in SQL
         this.saveInfo();
     }
 
@@ -156,7 +152,6 @@ class Administrator extends Employee {
     
         this._department = department;
 
-        // save this in SQL
         this.saveInfo();
     }
 
@@ -180,7 +175,6 @@ class ProDean extends Employee {
     constructor(id, firstName, lastName, birthDate, salary) {
         super(id, firstName, lastName, birthDate, salary);
 
-        // save this in SQL
         this.saveInfo();
     }
 
@@ -202,7 +196,6 @@ class DepartmentHead extends Teacher {
     
         this._department = department;
 
-        // save this in SQL
         this.saveInfo();
     }
 
@@ -227,7 +220,7 @@ class Dean extends ProDean {
         super(id, firstName, lastName, birthDate, salary);
 
         this._year = year;
-        // save this in SQL
+
         this.saveInfo();
     }
 

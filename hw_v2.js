@@ -41,6 +41,9 @@ var Employee = function(id, firstName, lastName, birthDate, salary) {
     }
 }
 
+Employee.prototype = Object.create(Person.prototype);
+Employee.prototype = { constructor: Employee};
+
 var Student = function(id, firstName, lastName, birthDate, scholarship) {
     Person.call(id, firstName, lastName, birthDate);
 
@@ -61,6 +64,9 @@ var Student = function(id, firstName, lastName, birthDate, scholarship) {
     }
 }
 
+Student.prototype = Object.create(Person.prototype);
+Student.prototype = { constructor: Student};
+
 var Teacher = function(id, firstName, lastName, birthDate, salary, subject) {
     Employee.call(id, firstName, lastName, birthDate, salary);
 
@@ -70,6 +76,9 @@ var Teacher = function(id, firstName, lastName, birthDate, salary, subject) {
         return this._subject;
     }
 }
+
+Teacher.prototype = Object.create(Employee.prototype);
+Teacher.prototype = { constructor: Teacher};
 
 var Administrator = function(id, firstName, lastName, birthDate, salary, department) {
     Employee.call(id, firstName, lastName, birthDate, salary);
@@ -81,6 +90,9 @@ var Administrator = function(id, firstName, lastName, birthDate, salary, departm
     }
 }
 
+Administrator.prototype = Object.create(Employee.prototype);
+Administrator.prototype = { constructor: Administrator};
+
 var ProDean = function(id, firstName, lastName, birthDate, salary, year) {
     Employee.call(id, firstName, lastName, birthDate, salary);
 
@@ -90,6 +102,9 @@ var ProDean = function(id, firstName, lastName, birthDate, salary, year) {
         return this._year;
     }
 }
+
+ProDean.prototype = Object.create(Employee.prototype);
+ProDean.prototype = { constructor: ProDean};
 
 var DepartmentHead = function(id, firstName, lastName, birthDate, salary, subject, department) {
     Teacher.call(id, firstName, lastName, birthDate, salary, subject);
@@ -101,21 +116,12 @@ var DepartmentHead = function(id, firstName, lastName, birthDate, salary, subjec
     }
 }
 
+DepartmentHead.prototype = Object.create(Teacher.prototype);
+DepartmentHead.prototype = { constructor: DepartmentHead};
+
 var Dean = function(id, firstName, lastName, birthDate, salary, year, ) {
     ProDean.call(id, firstName, lastName, birthDate, salary, year);
 }
 
-Employee.prototype = Object.create(Person.prototype);
-Employee.prototype = { constructor: Employee};
-Student.prototype = Object.create(Person.prototype);
-Student.prototype.constructor = Student;
-Teacher.prototype = Object.create(Employee.prototype);
-Teacher.prototype.constructor = Teacher;
-Administrator.prototype = Object.create(Employee.prototype);
-Administrator.prototype.constructor = Administrator;
-ProDean.prototype = Object.create(Employee.prototype);
-ProDean.prototype.constructor = ProDean;
-DepartmentHead.prototype = Object.create(Teacher.prototype);
-DepartmentHead.prototype.constructor = DepartmentHead;
 Dean.prototype = Object.create(ProDean.prototype);
-Dean.prototype.constructor = Dean;
+Dean.prototype = { constructor: Dean};
